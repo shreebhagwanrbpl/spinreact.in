@@ -5,16 +5,10 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
-  metadataBase: new URL(
-    "https://clinidix.com"
-  ),
-
-  title:
-    "Midnight Bio | Biomedical & Diagnostic Equipment",
-
+  metadataBase: new URL("https://spinreact.in"),
+  title: "Raj Biosis Private Limited | Biomedical & Diagnostic Equipment",
   description:
     "Raj Biosis Private Limited (Raj Biomedical) supplies CBC Machines, Hematology Analyzers, Biochemistry Analyzers, ELISA Readers and laboratory equipment across India.",
-
   keywords: [
     "Biomedical Equipment Supplier",
     "Laboratory Equipment Supplier",
@@ -26,18 +20,12 @@ export const metadata = {
     "Raj Biosis",
     "Raj Biomedical",
   ],
-
   openGraph: {
-    title:
-      "Midnight Bio | Biomedical & Diagnostic Equipment",
-
+    title: "Raj Biosis Private Limited | Biomedical & Diagnostic Equipment",
     description:
-      "A dark, high-contrast command-center aesthetic for modern biomedical operations.",
-
-    url: "https://clinidix.com",
-
+      "Precision medical equipment, automated clinical analyzers, and 24/7 biomedical engineering support across India.",
+    url: "https://spinreact.in",
     siteName: "Raj Biosis Private Limited",
-
     images: [
       {
         url: "/logo.png",
@@ -46,47 +34,42 @@ export const metadata = {
         alt: "Raj Biosis Private Limited",
       },
     ],
-
     locale: "en_US",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "Midnight Bio | Biomedical & Diagnostic Equipment",
-
+    title: "Raj Biosis Private Limited | Biomedical & Diagnostic Equipment",
     description:
-      "A dark, high-contrast command-center aesthetic for modern biomedical operations.",
-
+      "Precision medical equipment, automated clinical analyzers, and 24/7 biomedical engineering support across India.",
     images: ["/logo.png"],
   },
-
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
-
   alternates: {
-    canonical: "https://clinidix.com",
+    canonical: "https://spinreact.in",
   },
 };
 
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased variant-05" data-ui-variant="midnight" suppressHydrationWarning>
+      <body className="bg-[#F8FAFC] text-slate-900 antialiased selection:bg-[#0F172A] selection:text-white" suppressHydrationWarning>
         <Navbar />
 
-        <main>
+        <main className="min-h-screen">
           <Toaster
             position="top-right"
             toastOptions={{
               duration: 3000,
+              style: {
+                background: "#0F172A",
+                color: "#F8FAFC",
+                border: "1px solid #334155",
+              },
             }}
           />
 

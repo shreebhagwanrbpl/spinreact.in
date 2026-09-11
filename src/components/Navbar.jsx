@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -20,6 +20,7 @@ export default function Navbar() {
     "services",
     "items",
     "contact",
+    "products",
   ];
 
   const district =
@@ -47,127 +48,95 @@ export default function Navbar() {
   ];
 
   return (
- <header className="sticky top-0 z-50 border-b border-[#E8D3BC] bg-white/90 backdrop-blur-xl shadow-sm">
-
-  <div className="container-custom flex h-20 items-center justify-between">
-
-    {/* Logo */}
-
-    <Link href={makeLink("/")} className="relative block h-16 w-48 shrink-0 transition-transform hover:scale-105">
-
-      <Image
-        src="/logo.png"
-        alt="Raj Biosis Private Limited"
-        fill
-        className="object-contain object-left"
-        priority
-      />
-
-    </Link>
-
-    {/* Desktop Menu */}
-
-    <nav className="hidden items-center gap-8 lg:flex">
-
-      {navLinks.map((link) => (
-
-        <Link
-          key={link.name}
-          href={makeLink(link.path)}
-          className="relative font-medium text-[#5B4634] transition-all duration-300 hover:text-[#C05800] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#C05800] after:transition-all after:duration-300 hover:after:w-full"
-        >
-          {link.name}
+    <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl shadow-sm">
+      <div className="container-custom flex h-20 items-center justify-between">
+        {/* Logo */}
+        <Link href={makeLink("/")} className="relative block h-14 w-48 shrink-0 transition-transform hover:scale-105">
+          <Image
+            src="/logo.png"
+            alt="Raj Biosis Private Limited"
+            fill
+            className="object-contain object-left"
+            priority
+          />
         </Link>
 
-      ))}
+        {/* Desktop Menu */}
+        <nav className="hidden items-center gap-8 lg:flex">
+          {navLinks.map((link) => {
+            const isActive =
+              link.path === "/"
+                ? pathname === "/" || (district && pathname === `/${district}`)
+                : pathname.includes(link.path);
 
-    </nav>
+            return (
+              <Link
+                key={link.name}
+                href={makeLink(link.path)}
+                className={`relative text-sm font-semibold transition-all duration-300 py-1 ${
+                  isActive
+                    ? "text-[#0F172A] font-bold"
+                    : "text-slate-600 hover:text-amber-600"
+                } after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-[#0F172A] after:transition-all after:duration-300 ${
+                  isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
 
-    {/* Desktop Button */}
-
-    <div className="hidden lg:block">
-
-      <Link href={makeLink("/contact")}>
-
-        <button className="rounded-xl bg-[#C05800] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#713600] hover:shadow-xl hover:shadow-[#C05800]/20">
-
-          Get Quote
-
-        </button>
-
-      </Link>
-
-    </div>
-
-    {/* Mobile Button */}
-
-    <button
-      onClick={() => setMenuOpen(!menuOpen)}
-      className="rounded-xl border border-[#E8D3BC] bg-[#FDFBD4] p-2 transition-all duration-300 hover:bg-[#F3E4D2] lg:hidden"
-    >
-
-      {menuOpen ? (
-        <X
-          size={26}
-          className="text-[#C05800]"
-        />
-      ) : (
-        <Menu
-          size={26}
-          className="text-[#C05800]"
-        />
-      )}
-
-    </button>
-
-  </div>
-
-  {/* Mobile Menu */}
-
-  <div
-    className={`overflow-hidden transition-all duration-300 lg:hidden ${
-      menuOpen ? "max-h-[500px]" : "max-h-0"
-    }`}
-  >
-
-    <div className="border-t border-[#E8D3BC] bg-white px-6 py-6">
-
-      <nav className="flex flex-col gap-5">
-
-        {navLinks.map((link) => (
-
-          <Link
-            key={link.name}
-            href={makeLink(link.path)}
-            onClick={() => setMenuOpen(false)}
-            className="font-medium text-[#5B4634] transition-all duration-300 hover:translate-x-1 hover:text-[#C05800]"
-          >
-
-            {link.name}
-
+        {/* Desktop Button */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link href={makeLink("/contact")}>
+            <button className="flex items-center gap-2 rounded-xl bg-[#0F172A] px-6 py-2.5 font-bold text-white shadow-md shadow-slate-900/15 transition-all duration-300 hover:bg-[#1E293B] hover:scale-105">
+              <span>Get Quote</span>
+            </button>
           </Link>
+        </div>
 
-        ))}
-
-        <Link
-          href={makeLink("/contact")}
-          onClick={() => setMenuOpen(false)}
+        {/* Mobile Toggle Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+          className="rounded-xl border border-slate-200 bg-slate-100 p-2.5 text-[#0F172A] transition-all duration-300 hover:bg-slate-200 lg:hidden"
         >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-          <button className="mt-2 w-full rounded-xl bg-[#C05800] py-3 font-semibold text-white transition-all duration-300 hover:bg-[#713600]">
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`overflow-hidden transition-all duration-300 lg:hidden ${
+          menuOpen ? "max-h-[500px] border-b border-slate-200" : "max-h-0"
+        }`}
+      >
+        <div className="border-t border-slate-200 bg-white px-6 py-6 shadow-xl">
+          <nav className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={makeLink(link.path)}
+                onClick={() => setMenuOpen(false)}
+                className="font-medium text-slate-700 transition-all duration-300 hover:translate-x-1 hover:text-amber-600 text-base"
+              >
+                {link.name}
+              </Link>
+            ))}
 
-            Get Quote
-
-          </button>
-
-        </Link>
-
-      </nav>
-
-    </div>
-
-  </div>
-
-</header>
+            <Link
+              href={makeLink("/contact")}
+              onClick={() => setMenuOpen(false)}
+              className="mt-2"
+            >
+              <button className="w-full rounded-xl bg-[#0F172A] py-3 font-bold text-white transition-all duration-300 hover:bg-[#1E293B] shadow-md">
+                Get Quote
+              </button>
+            </Link>
+          </nav>
+        </div>
+      </div>
+    </header>
   );
 }

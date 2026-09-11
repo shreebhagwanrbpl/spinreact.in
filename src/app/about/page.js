@@ -18,7 +18,6 @@ import {
   Activity,
   Microscope,
 } from "lucide-react";
-import DDS from "@/components/img/Dds.png";
 
 const values = [
   {
@@ -64,8 +63,9 @@ export default function AboutPage() {
     if (path === "/") return `/${district}`;
     return `/${district}${path}`;
   };
+
   return (
-    <div className="bg-[#FFF9EF]/40 text-[#38240D]">
+    <div className="bg-white text-slate-900 selection:bg-[#0F172A] selection:text-white">
       {/* Banner */}
       <PageBanner
         badge="Who We Are"
@@ -74,29 +74,30 @@ export default function AboutPage() {
       />
 
       {/* Main Story Section */}
-      <section className="section-padding bg-gradient-to-b from-white via-[#FFF9EF] to-[#FDFBD4]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             {/* Left Image Graphic */}
             <div className="lg:col-span-6 relative">
-              <div className="relative overflow-hidden rounded-[36px] border border-[#E8D3BC] bg-gradient-to-br from-[#FDFBD4] via-white to-[#F3E4D2] p-8 shadow-xl shadow-[#C05800]/10">
+              <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-slate-50 shadow-2xl">
                 <Image
-                  src={DDS}
-                  alt="Raj Biosis Private Limited Team & Facility"
-                  width={1000}
-                  height={750}
-                  className="w-full h-auto object-contain transition duration-500 hover:scale-105"
+                  src="/about-facility.jpg"
+                  alt="Raj Biosis Private Limited Biomedical Engineering Facility"
+                  width={1200}
+                  height={900}
+                  priority
+                  className="w-full h-auto object-cover transition duration-700 hover:scale-105"
                 />
               </div>
 
               {/* Floating Stat Badge */}
-              <div className="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-4 rounded-3xl border border-[#E8D3BC] bg-white p-6 shadow-2xl">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C05800] text-white font-black text-2xl">
+              <div className="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-4 rounded-3xl border border-slate-800 bg-[#0F172A] p-6 shadow-2xl">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500 text-slate-950 font-black text-2xl">
                   10+
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-[#38240D]">Years Experience</h4>
-                  <p className="text-xs text-[#5B4634]">Trusted Biomedical Partner</p>
+                  <h4 className="text-lg font-bold text-white">Years Experience</h4>
+                  <p className="text-xs text-slate-400">Trusted Biomedical Partner</p>
                 </div>
               </div>
             </div>
@@ -109,7 +110,7 @@ export default function AboutPage() {
                 description="Raj Biosis Private Limited (Raj Biomedical) was founded with a singular mission: to provide Indian hospitals and laboratories with reliable, world-class diagnostic technology backed by instant field service."
               />
 
-              <div className="mt-8 space-y-4 text-base sm:text-lg leading-relaxed text-[#5B4634]">
+              <div className="mt-8 space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
                 <p>
                   Over the past decade, we have grown from a regional equipment supplier into a nationwide biomedical solution provider. We specialize in fully automated clinical chemistry analyzers, hematology counters, PCR systems, and ICU patient monitoring setups.
                 </p>
@@ -120,13 +121,13 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 rounded-2xl border border-[#E8D3BC] bg-white p-4 shadow-sm">
-                  <CheckCircle2 size={20} className="text-[#C05800] shrink-0" />
-                  <span className="text-sm font-bold text-[#38240D]">NABL Traceable QC</span>
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm">
+                  <CheckCircle2 size={20} className="text-amber-500 shrink-0" />
+                  <span className="text-sm font-bold text-[#0F172A]">NABL Traceable QC</span>
                 </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-[#E8D3BC] bg-white p-4 shadow-sm">
-                  <CheckCircle2 size={20} className="text-[#C05800] shrink-0" />
-                  <span className="text-sm font-bold text-[#38240D]">2-Hour SLA Maintenance</span>
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm">
+                  <CheckCircle2 size={20} className="text-amber-500 shrink-0" />
+                  <span className="text-sm font-bold text-[#0F172A]">2-Hour SLA Maintenance</span>
                 </div>
               </div>
             </div>
@@ -135,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="section-padding bg-white border-y border-[#E8D3BC]/60">
+      <section className="section-padding bg-slate-50 border-y border-slate-200/80">
         <div className="container-custom">
           <SectionTitle
             badge="Strategic Purpose"
@@ -145,47 +146,47 @@ export default function AboutPage() {
           />
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
-            <div className="rounded-3xl border border-[#E8D3BC] bg-gradient-to-br from-[#FFF9EF] to-white p-8 sm:p-10 shadow-md">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#C05800] text-white shadow-md">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-xl">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0F172A] text-amber-400 shadow-md">
                 <Target size={28} />
               </div>
 
-              <h3 className="text-2xl font-bold text-[#38240D]">Our Mission</h3>
+              <h3 className="text-2xl font-black text-[#0F172A]">Our Mission</h3>
 
-              <p className="mt-4 text-base leading-relaxed text-[#5B4634]">
+              <p className="mt-4 text-base leading-relaxed text-slate-600">
                 To empower healthcare facilities with state-of-the-art diagnostic tools, zero-downtime maintenance contracts, and continuous technical training—ensuring every patient receives accurate, timely lab results.
               </p>
 
-              <ul className="mt-6 space-y-2.5 text-sm text-[#5B4634]">
+              <ul className="mt-6 space-y-2.5 text-sm text-slate-700">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[#C05800]" />
+                  <CheckCircle2 size={16} className="text-amber-500" />
                   <span>Deliver certified automated analyzers nationwide</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[#C05800]" />
+                  <CheckCircle2 size={16} className="text-amber-500" />
                   <span>Maintain guaranteed 24/7 service response SLAs</span>
                 </li>
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-[#E8D3BC] bg-gradient-to-br from-[#FDFBD4] to-white p-8 sm:p-10 shadow-md">
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#713600] text-white shadow-md">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-xl">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0F172A] text-amber-400 shadow-md">
                 <Eye size={28} />
               </div>
 
-              <h3 className="text-2xl font-bold text-[#38240D]">Our Vision</h3>
+              <h3 className="text-2xl font-black text-[#0F172A]">Our Vision</h3>
 
-              <p className="mt-4 text-base leading-relaxed text-[#5B4634]">
+              <p className="mt-4 text-base leading-relaxed text-slate-600">
                 To be recognized as India's premier biomedical technology and calibration infrastructure company, setting the benchmark for precision, innovation, and customer support in diagnostic healthcare.
               </p>
 
-              <ul className="mt-6 space-y-2.5 text-sm text-[#5B4634]">
+              <ul className="mt-6 space-y-2.5 text-sm text-slate-700">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[#C05800]" />
+                  <CheckCircle2 size={16} className="text-amber-500" />
                   <span>Expand cold-chain distribution to every tier-2 & tier-3 city</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[#C05800]" />
+                  <CheckCircle2 size={16} className="text-amber-500" />
                   <span>Pioneer AI-assisted remote analyzer diagnostics</span>
                 </li>
               </ul>
@@ -195,7 +196,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Grid */}
-      <section className="section-padding bg-gradient-to-b from-[#FDFBD4] via-white to-[#FFF9EF]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <SectionTitle
             badge="Our Foundation"
@@ -210,17 +211,17 @@ export default function AboutPage() {
               return (
                 <div
                   key={idx}
-                  className="group rounded-3xl border border-[#E8D3BC] bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-[#C05800]/40 hover:shadow-xl"
+                  className="group rounded-3xl border border-slate-200 bg-white p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-black/10"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F3E4D2] text-[#C05800] transition-colors group-hover:bg-[#C05800] group-hover:text-white">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-amber-500 transition-colors group-hover:bg-[#0F172A] group-hover:text-amber-400">
                     <Icon size={28} />
                   </div>
 
-                  <h4 className="text-xl font-bold text-[#38240D] group-hover:text-[#C05800] transition-colors">
+                  <h4 className="text-xl font-bold text-[#0F172A] group-hover:text-amber-600 transition-colors">
                     {val.title}
                   </h4>
 
-                  <p className="mt-3 text-sm leading-relaxed text-[#5B4634]">
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
                     {val.desc}
                   </p>
                 </div>
@@ -231,7 +232,7 @@ export default function AboutPage() {
       </section>
 
       {/* Growth Milestones Timeline */}
-      <section className="section-padding bg-white border-t border-[#E8D3BC]/60">
+      <section className="section-padding bg-slate-50 border-t border-slate-200/80">
         <div className="container-custom">
           <SectionTitle
             badge="Company Timeline"
@@ -244,13 +245,13 @@ export default function AboutPage() {
             {milestones.map((m, idx) => (
               <div
                 key={idx}
-                className="relative overflow-hidden rounded-3xl border border-[#E8D3BC] bg-[#FFF9EF] p-8 shadow-sm transition-all hover:border-[#C05800]/50 hover:shadow-md"
+                className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-xl transition-all hover:border-amber-500/50 hover:shadow-2xl hover:shadow-black/10"
               >
-                <span className="text-4xl font-black text-[#C05800]">
+                <span className="text-4xl font-black text-amber-600">
                   {m.year}
                 </span>
-                <h4 className="mt-4 text-xl font-bold text-[#38240D]">{m.title}</h4>
-                <p className="mt-2 text-xs sm:text-sm text-[#5B4634] leading-relaxed">
+                <h4 className="mt-4 text-xl font-bold text-[#0F172A]">{m.title}</h4>
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {m.desc}
                 </p>
               </div>
@@ -260,19 +261,19 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#38240D] via-[#5B4634] to-[#38240D] py-16 text-white text-center">
+      <section className="bg-[#0F172A] border-t border-slate-800 py-16 text-white text-center">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             Ready to Upgrade Your Laboratory Technology?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#E8D3BC]/90">
+          <p className="mt-4 text-base sm:text-lg text-slate-300">
             Consult with our biomedical engineering specialists for custom equipment recommendations and instant pricing.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href={makeLink("/contact")}
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#C05800] px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-[#713600]"
+              className="inline-flex items-center gap-2 rounded-2xl bg-amber-500 text-slate-950 px-8 py-4 text-base font-bold shadow-lg transition-all hover:bg-amber-400"
             >
               <span>Contact Engineering Team</span>
               <ArrowRight size={18} />
@@ -280,7 +281,7 @@ export default function AboutPage() {
 
             <Link
               href={makeLink("/items")}
-              className="inline-flex items-center gap-2 rounded-2xl border border-[#E8D3BC] bg-white/10 px-8 py-4 text-base font-bold text-white shadow-sm transition-all hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-2xl border border-slate-700 bg-white/5 px-8 py-4 text-base font-bold text-white shadow-sm transition-all hover:bg-white/10"
             >
               <span>Browse Equipment Catalog</span>
             </Link>
